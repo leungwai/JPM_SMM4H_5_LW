@@ -7,7 +7,7 @@ from transformers import pipeline
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from sklearn.metrics import accuracy_score, classification_report
 from load_data import initialize_data
-from reading_datasets import read_task7
+from reading_datasets import read_task
 from labels_to_ids import task7_labels_to_ids
 import time
 import os
@@ -139,11 +139,11 @@ def main(n_epochs, model_name, model_save_flag, model_save_location, model_load_
     initialization_input = (max_len, batch_size)
 
     #Reading datasets and initializing data loaders
-    dataset_location = '../Datasets/TASK7/'
+    dataset_location = '../Datasets/'
 
-    train_data = read_task7(dataset_location , split = 'train')
-    dev_data = read_task7(dataset_location , split = 'dev')
-    #test_data = read_task7(dataset_location , split = 'dev')#load test set
+    train_data = read_task(dataset_location , split = 'train')
+    dev_data = read_task(dataset_location , split = 'dev')
+    #test_data = read_task(dataset_location , split = 'dev')#load test set
     labels_to_ids = task7_labels_to_ids
     input_data = (train_data, dev_data, labels_to_ids)
 
@@ -210,16 +210,16 @@ def main(n_epochs, model_name, model_save_flag, model_save_location, model_load_
 
 if __name__ == '__main__':
     n_epochs = 10
-    models = ['bert-base-uncased', 'roberta-base']
+    models = ['dccuchile/bert-base-spanish-wwm-uncased']
     
     #model saving parameters
-    model_save_flag = False
+    model_save_flag = True
     model_load_flag = False
 
 
     for model_name in models:
 
-        model_save_location = '../../saved_models/' + model_name
+        model_save_location = '../saved_models_5/' + model_name
         model_load_location = None
 
         best_dev_acc, best_test_acc, best_tb_acc, best_epoch, best_tb_epoch = main(n_epochs, model_name, model_save_flag, model_save_location, model_load_flag, model_load_location)

@@ -1,4 +1,5 @@
 task7_labels_to_ids = {
-    '0' : 0, 
-    '1' :1
+    'Self_reports' : 0, 
+    'non-personal_reports' : 1,
+    'Lit-News_mentions' : 2
 }
