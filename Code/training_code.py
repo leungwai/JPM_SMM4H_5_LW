@@ -81,7 +81,9 @@ def validating(model, testing_loader, labels_to_ids, device):
     eval_loss, eval_accuracy = 0, 0
     nb_eval_examples, nb_eval_steps = 0, 0
 
-    eval_f1, eval_precision, eval_recall = 0, 0, 0
+    eval_f1 = 0
+    eval_precision = 0
+    eval_recall = 0
 
     eval_preds, eval_labels = [], []
     eval_tweet_ids, eval_topics, eval_orig_sentences = [], [], []
@@ -329,8 +331,6 @@ def main(n_epochs, model_name, model_save_flag, model_save_location, model_load_
             best_precision = dev_precision
             best_recall = best_recall
 
-            
-
             #best_test_acc = test_accuracy
             best_epoch = epoch
             
@@ -348,6 +348,9 @@ def main(n_epochs, model_name, model_save_flag, model_save_location, model_load_
 
         now = time.time()
         print('BEST ACCURACY --> ', 'DEV:', round(best_dev_acc, 5))
+        print('BEST F1 --> ', 'DEV:', best_f1)
+        print('BEST PRECISION --> ', 'DEV:', best_precision)
+        print('BEST RECALL --> ', 'DEV:',  best_recall)
         print('TIME PER EPOCH:', (now-start)/60 )
         print()
 
@@ -358,13 +361,14 @@ def main(n_epochs, model_name, model_save_flag, model_save_location, model_load_
 
 
 if __name__ == '__main__':
-    n_epochs = 1
+    n_epochs = 10
     models = ['dccuchile/bert-base-spanish-wwm-uncased', 'xlm-roberta-base']
     
     #model saving parameters
     model_save_flag = True
     model_load_flag = False
 
+    # setting up the arrays to save data for all loops, models, and epochs
     # accuracy
     all_best_dev_acc = pd.DataFrame(index=[0,1,2,3,4], columns=models)
     all_best_test_acc = pd.DataFrame(index=[0,1,2,3,4], columns=models)
@@ -379,14 +383,17 @@ if __name__ == '__main__':
     all_best_precision = pd.DataFrame(index=[0,1,2,3,4], columns=models)
     all_best_recall = pd.DataFrame(index=[0,1,2,3,4], columns=models)
 
-    # epoch data
-    all_epoch_data = pd.DataFrame(index=[0,1,2,3,4], columns=models)
 
-    for loop_index in range(1):
+    for loop_index in range(5):
         for model_name in models:
+            print('Running loop', loop_index)
+            print()
 
             model_save_location = '../saved_models_5/' + model_name + '/' + str(loop_index) + '/' 
             model_load_location = None
+
+            epoch_save_location = '../saved_epoch_5/' + model_name + '/' + str(loop_index) + '/' 
+            epoch_save_name = epoch_save_location + '/epoch_info.tsv'
 
             result_save_location = '../saved_data_5/' + model_name + '/' + str(loop_index) + '/'
 
@@ -395,8 +402,6 @@ if __name__ == '__main__':
             formatted_test_save_location = result_save_location + 'formatted_test.tsv'
 
             best_test_result, best_prediction_result, best_dev_acc, best_test_acc, best_tb_acc, best_epoch, best_tb_epoch, best_f1_score, best_precision, best_recall, epoch_data = main(n_epochs, model_name, model_save_flag, model_save_location, model_load_flag, model_load_location)
-
-            
 
             # Getting accuracy
             all_best_dev_acc.at[loop_index, model_name] = best_dev_acc
@@ -407,14 +412,14 @@ if __name__ == '__main__':
             all_best_epoch.at[loop_index, model_name] = best_epoch
             all_best_tb_epoch.at[loop_index, model_name] = best_tb_epoch
 
-
-            # Getting best individual data (by category)
+            # Getting best f1, precision, and recall
             all_best_f1_score.at[loop_index, model_name] = best_f1_score
             all_best_precision.at[loop_index, model_name] = best_precision
             all_best_recall.at[loop_index, model_name] = best_recall
 
             # Get all epoch info 
-            all_epoch_data.at[loop_index, model_name] = epoch_data
+            os.makedirs(epoch_save_location, exist_ok=True)
+            epoch_data.to_csv(epoch_save_name, sep='\t')
 
             print("\n Prediction results")
             print(best_prediction_result)
@@ -447,9 +452,6 @@ if __name__ == '__main__':
     print("\n All best recall")
     print(all_best_recall)
 
-    print("\n All epoch data")
-    print(all_epoch_data)
-
     #saving all results into tsv
 
     os.makedirs('../results/', exist_ok=True)
@@ -457,7 +459,6 @@ if __name__ == '__main__':
     all_best_f1_score.to_csv('../results/all_best_f1_score.tsv', sep='\t')
     all_best_precision.to_csv('../results/all_best_precision.tsv', sep='\t')
     all_best_recall.to_csv('../results/all_best_recall.tsv', sep='\t')
-    all_epoch_data.to_csv('../results/all_epoch_data.tsv', sep='\t')
 
     print("Everything successfully completed")
 
