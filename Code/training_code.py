@@ -293,7 +293,7 @@ def main(n_epochs, model_name, model_save_flag, model_save_location, model_load_
     best_precision = 0
     best_recall = 0
 
-    all_epoch_data = pd.DataFrame(index=[0,1,2,3,4,5,6,7,8,9], columns=['dev_accuracy', 'f1', 'precision', 'recall'])
+    all_epoch_data = pd.DataFrame(index=[0,1,2,3,4,5,6,7,8,9], columns=['dev_accuracy', 'dev_f1', 'dev_precision', 'dev_recall'])
 
     best_overall_prediction_data = []
     best_testing_data = []
