@@ -81,12 +81,10 @@ def validating(model, testing_loader, labels_to_ids, device):
     eval_loss, eval_accuracy = 0, 0
     nb_eval_examples, nb_eval_steps = 0, 0
 
-    eval_f1 = 0
-    eval_precision = 0
-    eval_recall = 0
+    eval_f1, eval_precision, eval_recall = 0, 0, 0
 
     eval_preds, eval_labels = [], []
-    eval_tweet_ids, eval_topics, eval_orig_sentences = [], [], []
+    eval_tweet_ids, eval_orig_sentences = [], []
     
     ids_to_labels = dict((v,k) for k,v in labels_to_ids.items())
 
