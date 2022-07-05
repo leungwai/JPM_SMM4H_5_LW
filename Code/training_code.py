@@ -73,7 +73,7 @@ def train(epoch, training_loader, model, optimizer, device, grad_step = 1, max_g
     return model
 
 
-def validating(model, testing_loader, labels_to_ids, device):
+def validate(model, testing_loader, labels_to_ids, device):
     print("VALIDATING DATA")
     # put model in evaluation mode
     model.eval()
@@ -306,7 +306,7 @@ def main(n_epochs, model_name, model_save_flag, model_save_location, model_load_
         model = train(epoch, train_loader, model, optimizer, device, grad_step)
         
         #testing and logging
-        dev_overall_prediction, labels_dev, predictions_dev, dev_accuracy, dev_f1, dev_precision, dev_recall = validating(model, dev_loader, labels_to_ids, device)
+        dev_overall_prediction, labels_dev, predictions_dev, dev_accuracy, dev_f1, dev_precision, dev_recall = validate(model, dev_loader, labels_to_ids, device)
         print('DEV ACC:', dev_accuracy)
         print('DEV F1:', dev_f1)
         print('DEV PRECISION:', dev_precision)
