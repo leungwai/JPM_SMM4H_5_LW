@@ -305,7 +305,7 @@ def main(n_epochs, model_name, model_save_flag, model_save_location, model_load_
             best_dev_acc = dev_accuracy
             best_f1 = dev_f1
             best_precision = dev_precision
-            best_recall = best_recall
+            best_recall = dev_recall
 
             #best_test_acc = test_accuracy
             best_epoch = epoch
@@ -336,6 +336,7 @@ def main(n_epochs, model_name, model_save_flag, model_save_location, model_load_
 
 
 if __name__ == '__main__':
+    train_val_start_time = time.time()
     n_epochs = 10
     models = ['dccuchile/bert-base-spanish-wwm-uncased', 'xlm-roberta-base', 'bert-base-multilingual-uncased']
     
@@ -430,7 +431,8 @@ if __name__ == '__main__':
     all_best_precision.to_csv('../validating_statistics/all_best_precision.tsv', sep='\t')
     all_best_recall.to_csv('../validating_statistics/all_best_recall.tsv', sep='\t')
 
+    train_val_end_time = time.time()
+
+    total_time = (train_val_end_time - train_val_start_time) / 60
     print("Everything successfully completed")
-
-
-
+    print("Time to complete:", total_time)
