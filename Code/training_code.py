@@ -435,4 +435,4 @@ if __name__ == '__main__':
 
     total_time = (train_val_end_time - train_val_start_time) / 60
     print("Everything successfully completed")
-    print("Time to complete:", total_time)
+    print("Time to complete:", total_time) 
