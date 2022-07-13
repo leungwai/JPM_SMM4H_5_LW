@@ -41,10 +41,6 @@ def main(model_load_location):
     # Getting testing dataloaders
     test_loader = initialize_test(tokenizer, initialization_input, test_data, labels_to_ids, shuffle = False)
 
-    test_ind_f1 = 0
-    test_ind_precision = 0
-    test_ind_recall = 0
-
     start = time.time()
 
     # Run the model with unshuffled testing data
@@ -57,19 +53,22 @@ def main(model_load_location):
 
     return test_result
 
+
+
 if __name__ == '__main__':
-    n_epochs = 1
-    models = ['dccuchile/bert-base-spanish-wwm-uncased', 'xlm-roberta-base', 'bert-base-multilingual-uncased']
+    train_val_start_time = time.time()
+    n_rounds = 5
+    models = ['dccuchile/bert-base-spanish-wwm-uncased', 'dccuchile/bert-base-spanish-wwm-cased', 'xlm-roberta-base', 'bert-base-multilingual-uncased', 'bert-base-multilingual-cased']
 
 
-    for loop_index in range(5):
+    for loop_index in range(n_rounds):
         for model_name in models:
             test_print_statement = 'Testing ' + model_name + ' from loop ' + str(loop_index)
             print(test_print_statement)
 
-            model_load_location = '../saved_models_5/' + model_name + '/' + str(loop_index) + '/' 
+            model_load_location = '../15_epochs_small_model/saved_models_5/' + model_name + '/' + str(loop_index) + '/' 
             
-            result_save_location = '../saved_test_result_5/' + model_name + '/' + str(loop_index) + '/'
+            result_save_location = '../15_epochs_small_model/saved_test_result_5/' + model_name + '/' + str(loop_index) + '/'
             
             unformatted_result_save_location = result_save_location + 'unformatted_test_result.tsv'
             formatted_result_save_location = result_save_location + 'formatted_test_result.tsv'
@@ -87,7 +86,16 @@ if __name__ == '__main__':
 
             print("Result files saved")
 
+    train_val_end_time = time.time()
+
+    total_time = (train_val_end_time - train_val_start_time) / 60
     print("Everything successfully completed")
+    print("Time to complete:", total_time) 
+
+    with open('../15_epochs_small_model/testing_statistics/time.txt', 'w') as file:
+        file.write("Time to complete: ")
+        file.write(str(total_time))
+        file.write(" mins")
 
 
 
