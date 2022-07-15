@@ -162,6 +162,84 @@ def validate(model, testing_loader, labels_to_ids, device):
 
     return overall_prediction_data, labels, predictions, eval_accuracy, eval_f1, eval_precision, eval_recall, overall_cr_df, overall_cm_df
 
+def val_testing(model, testing_loader, labels_to_ids, device):
+    print("VALIDATING DATA")
+    # put model in evaluation mode
+    model.eval()
+    
+    eval_loss = 0
+    nb_eval_examples, nb_eval_steps = 0, 0
+
+
+    eval_preds, eval_labels = [], []
+    eval_tweet_ids, eval_orig_sentences = [], []
+    
+    ids_to_labels = dict((v,k) for k,v in labels_to_ids.items())
+
+    with torch.no_grad():
+        for idx, batch in enumerate(testing_loader):
+            
+            ids = batch['input_ids'].to(device, dtype = torch.long)
+            mask = batch['attention_mask'].to(device, dtype = torch.long)
+            labels = batch['labels'].to(device, dtype = torch.long)
+            
+            # to attach back to prediction data later 
+            tweet_ids = batch['tweet_id']
+            orig_sentences = batch['orig_sentence']
+
+            #loss, eval_logits = model(input_ids=ids, attention_mask=mask, labels=labels)
+            output = model(input_ids=ids, attention_mask=mask, labels=labels)
+
+            eval_loss += output['loss'].item()
+
+            nb_eval_steps += 1
+            nb_eval_examples += labels.size(0)
+        
+            if idx % 100==0:
+                loss_step = eval_loss/nb_eval_steps
+                print(f"Validation loss per 100 evaluation steps: {loss_step}")
+              
+            # compute evaluation accuracy
+            flattened_targets = labels.view(-1) # shape (batch_size * seq_len,)
+            active_logits = output[1].view(-1, model.num_labels) # shape (batch_size * seq_len, num_labels)
+            flattened_predictions = torch.argmax(active_logits, axis=1) # shape (batch_size * seq_len,)
+            
+            # only compute accuracy at active labels
+            active_accuracy = labels.view(-1) != -100 # shape (batch_size, seq_len)
+        
+            labels = torch.masked_select(flattened_targets, active_accuracy)
+            predictions = torch.masked_select(flattened_predictions, active_accuracy)
+            
+            eval_labels.extend(labels)
+            eval_preds.extend(predictions)
+
+            eval_tweet_ids.extend(tweet_ids)
+            eval_orig_sentences.extend(orig_sentences)
+    
+    num_labels = [id.item() for id in eval_labels]
+    num_predictions = [id.item() for id in eval_preds]
+
+    labels = [ids_to_labels[id.item()] for id in eval_labels]
+    predictions = [ids_to_labels[id.item()] for id in eval_preds]
+    
+    # Concatenating all data together into a single table
+    overall_prediction_data = pd.DataFrame(zip(eval_tweet_ids, eval_orig_sentences, labels, predictions), columns=['tweet_id', 'text', 'Orig', 'label'])
+    
+    overall_f1, overall_precision, overall_recall, overall_accuracy = calculate_overall_performance_metrics(num_labels, num_predictions)
+    overall_cr_df, overall_cm_df = calculate_overall_f1(num_labels, num_predictions)
+
+    eval_loss = eval_loss / nb_eval_steps
+
+    return overall_prediction_data, labels, predictions, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df
+
+def calculate_overall_performance_metrics(num_labels, num_predictions):
+    eval_test_f1 = f1_score(num_labels, num_predictions, labels=[0], average=None)[0]
+    eval_test_precision = precision_score(num_labels, num_predictions, labels=[0], average=None)[0]
+    eval_test_recall = recall_score(num_labels, num_predictions, labels=[0], average=None)[0]
+    eval_test_accuracy = accuracy_score(num_labels, num_predictions)
+
+    return eval_test_f1, eval_test_precision, eval_test_recall, eval_test_accuracy
+
 def calculate_overall_f1(num_labels, num_predictions):
     eval_classification_report = classification_report(num_labels, num_predictions, output_dict = True)
     cr_df = pd.DataFrame(eval_classification_report).transpose()
