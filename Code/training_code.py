@@ -173,6 +173,7 @@ def val_testing(model, testing_loader, labels_to_ids, device):
 
     eval_preds, eval_labels = [], []
     eval_tweet_ids, eval_orig_sentences = [], []
+    eval_logits = []
     
     ids_to_labels = dict((v,k) for k,v in labels_to_ids.items())
 
@@ -210,6 +211,8 @@ def val_testing(model, testing_loader, labels_to_ids, device):
             labels = torch.masked_select(flattened_targets, active_accuracy)
             predictions = torch.masked_select(flattened_predictions, active_accuracy)
             
+            eval_logits.extend(output.logits.cpu().numpy())
+
             eval_labels.extend(labels)
             eval_preds.extend(predictions)
 
@@ -218,6 +221,7 @@ def val_testing(model, testing_loader, labels_to_ids, device):
     
     num_labels = [id.item() for id in eval_labels]
     num_predictions = [id.item() for id in eval_preds]
+
 
     labels = [ids_to_labels[id.item()] for id in eval_labels]
     predictions = [ids_to_labels[id.item()] for id in eval_preds]
@@ -230,7 +234,7 @@ def val_testing(model, testing_loader, labels_to_ids, device):
 
     eval_loss = eval_loss / nb_eval_steps
 
-    return overall_prediction_data, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df
+    return overall_prediction_data, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df, eval_logits
 
 def calculate_overall_performance_metrics(num_labels, num_predictions):
     eval_test_f1 = f1_score(num_labels, num_predictions, labels=[0], average=None)[0]

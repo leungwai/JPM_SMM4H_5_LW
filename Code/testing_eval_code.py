@@ -44,7 +44,8 @@ def main(model_load_location):
     start = time.time()
 
     # Run the model with unshuffled testing data
-    test_result, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df = val_testing(model, test_loader, labels_to_ids, device)
+    test_result, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df, eval_logits = val_testing(model, test_loader, labels_to_ids, device)
+
 
     print('EVAL TEST ACC:', overall_accuracy)
     print('EVAL TEST F1:', overall_f1)
@@ -56,7 +57,7 @@ def main(model_load_location):
     print('TIME TO COMPLETE:', (now-start)/60 )
     print()
 
-    return test_result, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df
+    return test_result, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df, eval_logits
 
 
 
@@ -85,7 +86,7 @@ if __name__ == '__main__':
             unformatted_result_save_location = result_save_location + 'unformatted_eval_test_result.tsv'
             formatted_result_save_location = result_save_location + 'formatted_eval_test_result.tsv'
 
-            test_result, best_f1, best_precision, best_recall, best_accuracy, best_cr_df, best_cm_df = main(model_load_location)
+            test_result, best_f1, best_precision, best_recall, best_accuracy, best_cr_df, best_cm_df, eval_logits = main(model_load_location)
 
             # Getting best f1, precision, and recall, accuracy
             all_best_acc.at[loop_index, model_name] = best_accuracy
@@ -96,6 +97,10 @@ if __name__ == '__main__':
             os.makedirs(report_result_save_location, exist_ok=True)
             cr_df_location = report_result_save_location + 'classification_report.tsv'
             cm_df_location = report_result_save_location + 'confusion_matrix.tsv'
+            eval_logits_location = report_result_save_location + 'eval_logits.tsv'
+            
+            format_eval_logits = pd.DataFrame(eval_logits, columns=['0', '1', '2'])
+            format_eval_logits.to_csv(eval_logits_location, sep='\t')
         
             best_cr_df.to_csv(cr_df_location, sep='\t')
             best_cm_df.to_csv(cm_df_location, sep='\t')
@@ -127,7 +132,7 @@ if __name__ == '__main__':
     #saving all results into tsv
 
     os.makedirs('../15_epochs_small_model/eval_testing/eval_validation_statistics/', exist_ok=True)
-    all_best_dev_acc.to_csv('../15_epochs_small_model/eval_testing/eval_validation_statistics/all_best_dev_acc.tsv', sep='\t')
+    all_best_acc.to_csv('../15_epochs_small_model/eval_testing/eval_validation_statistics/all_best_dev_acc.tsv', sep='\t')
     all_best_f1_score.to_csv('../15_epochs_small_model/eval_testing/eval_validation_statistics/all_best_f1_score.tsv', sep='\t')
     all_best_precision.to_csv('../15_epochs_small_model/eval_testing/eval_validation_statistics/all_best_precision.tsv', sep='\t')
     all_best_recall.to_csv('../15_epochs_small_model/eval_testing/eval_validation_statistics/all_best_recall.tsv', sep='\t')
