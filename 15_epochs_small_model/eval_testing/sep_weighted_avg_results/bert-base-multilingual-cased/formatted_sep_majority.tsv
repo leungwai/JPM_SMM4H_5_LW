@@ -9,7 +9,7 @@ tweet_id	label
 100444	Lit-News_mentions
 104030	Lit-News_mentions
 104818	Lit-News_mentions
-302247	non-personal_reports
+302247	Self_reports
 105684	Lit-News_mentions
 103933	Lit-News_mentions
 101598	Lit-News_mentions
@@ -66,7 +66,7 @@ tweet_id	label
 101378	non-personal_reports
 105908	Lit-News_mentions
 100383	Lit-News_mentions
-200111	non-personal_reports
+200111	Self_reports
 100728	Lit-News_mentions
 101556	Lit-News_mentions
 105741	Lit-News_mentions
@@ -108,7 +108,7 @@ tweet_id	label
 200888	Self_reports
 200547	Self_reports
 200678	Self_reports
-201153	Lit-News_mentions
+201153	non-personal_reports
 102655	Lit-News_mentions
 105444	Lit-News_mentions
 100454	Lit-News_mentions
@@ -223,7 +223,7 @@ tweet_id	label
 101795	Lit-News_mentions
 104910	Lit-News_mentions
 201313	Self_reports
-201074	Self_reports
+201074	non-personal_reports
 200232	Self_reports
 300396	non-personal_reports
 200602	Self_reports
@@ -274,7 +274,7 @@ tweet_id	label
 103106	Lit-News_mentions
 300040	Self_reports
 104342	Lit-News_mentions
-200758	Self_reports
+200758	non-personal_reports
 105212	non-personal_reports
 302020	Lit-News_mentions
 101476	Lit-News_mentions
@@ -332,7 +332,7 @@ tweet_id	label
 104103	Lit-News_mentions
 200541	Self_reports
 300002	non-personal_reports
-201652	Lit-News_mentions
+201652	non-personal_reports
 102485	Lit-News_mentions
 301000	non-personal_reports
 201025	Self_reports
@@ -378,7 +378,7 @@ tweet_id	label
 102157	Lit-News_mentions
 104573	Lit-News_mentions
 103706	Lit-News_mentions
-200089	Self_reports
+200089	non-personal_reports
 105670	Lit-News_mentions
 300639	Self_reports
 300367	Lit-News_mentions
@@ -453,7 +453,7 @@ tweet_id	label
 301096	non-personal_reports
 301996	non-personal_reports
 200481	Self_reports
-100685	Lit-News_mentions
+100685	non-personal_reports
 301432	non-personal_reports
 105406	Lit-News_mentions
 300811	Lit-News_mentions
@@ -491,7 +491,7 @@ tweet_id	label
 102542	Lit-News_mentions
 301036	Self_reports
 300831	Self_reports
-302314	Self_reports
+302314	non-personal_reports
 300706	non-personal_reports
 200971	non-personal_reports
 105101	Lit-News_mentions
@@ -516,7 +516,7 @@ tweet_id	label
 104645	Lit-News_mentions
 102010	Lit-News_mentions
 200444	Self_reports
-300876	Lit-News_mentions
+300876	non-personal_reports
 102264	Lit-News_mentions
 302211	Lit-News_mentions
 105498	Lit-News_mentions
@@ -576,7 +576,7 @@ tweet_id	label
 101783	non-personal_reports
 100587	Lit-News_mentions
 103046	Lit-News_mentions
-300269	Self_reports
+300269	non-personal_reports
 101163	non-personal_reports
 102482	Lit-News_mentions
 100806	non-personal_reports
@@ -620,7 +620,7 @@ tweet_id	label
 300570	non-personal_reports
 105369	Lit-News_mentions
 100303	Lit-News_mentions
-301122	non-personal_reports
+301122	Self_reports
 105446	Lit-News_mentions
 102450	Lit-News_mentions
 105702	Lit-News_mentions
@@ -707,7 +707,7 @@ tweet_id	label
 103074	Lit-News_mentions
 301831	non-personal_reports
 100244	Lit-News_mentions
-301776	non-personal_reports
+301776	Self_reports
 201014	Self_reports
 301352	non-personal_reports
 301622	non-personal_reports
@@ -759,7 +759,7 @@ tweet_id	label
 301326	non-personal_reports
 201469	Self_reports
 103299	Lit-News_mentions
-302341	non-personal_reports
+302341	Self_reports
 200757	Self_reports
 103384	Lit-News_mentions
 101469	Lit-News_mentions
@@ -785,7 +785,7 @@ tweet_id	label
 101600	Lit-News_mentions
 300220	Self_reports
 102888	Lit-News_mentions
-300423	non-personal_reports
+300423	Self_reports
 101269	Lit-News_mentions
 301647	Self_reports
 101588	Lit-News_mentions
@@ -846,7 +846,7 @@ tweet_id	label
 100584	Lit-News_mentions
 105969	Lit-News_mentions
 101028	non-personal_reports
-201306	non-personal_reports
+201306	Self_reports
 300013	Lit-News_mentions
 301064	non-personal_reports
 100952	Lit-News_mentions
@@ -885,7 +885,7 @@ tweet_id	label
 301878	non-personal_reports
 301719	non-personal_reports
 300608	Self_reports
-301549	Lit-News_mentions
+301549	non-personal_reports
 101936	Lit-News_mentions
 102623	Lit-News_mentions
 200562	Self_reports
@@ -929,7 +929,7 @@ tweet_id	label
 301978	Self_reports
 103024	Lit-News_mentions
 300453	Self_reports
-200828	non-personal_reports
+200828	Self_reports
 200588	Self_reports
 300355	Self_reports
 300610	Lit-News_mentions
@@ -942,7 +942,7 @@ tweet_id	label
 302124	Self_reports
 104019	Lit-News_mentions
 200434	Self_reports
-105100	Lit-News_mentions
+105100	non-personal_reports
 104087	Lit-News_mentions
 103738	Lit-News_mentions
 201353	Self_reports
@@ -1099,7 +1099,7 @@ tweet_id	label
 102033	Lit-News_mentions
 103879	Lit-News_mentions
 105686	Lit-News_mentions
-301435	non-personal_reports
+301435	Self_reports
 104226	Lit-News_mentions
 300956	Lit-News_mentions
 301356	Lit-News_mentions
@@ -1315,7 +1315,7 @@ tweet_id	label
 105017	Lit-News_mentions
 300440	Self_reports
 100214	non-personal_reports
-300400	non-personal_reports
+300400	Self_reports
 100304	Lit-News_mentions
 300104	non-personal_reports
 100785	Lit-News_mentions
@@ -1370,7 +1370,7 @@ tweet_id	label
 300348	Self_reports
 100328	Lit-News_mentions
 103591	Lit-News_mentions
-104489	Lit-News_mentions
+104489	non-personal_reports
 104153	Lit-News_mentions
 100782	Lit-News_mentions
 102375	Lit-News_mentions
@@ -1447,10 +1447,10 @@ tweet_id	label
 103139	Lit-News_mentions
 105125	Lit-News_mentions
 101489	Lit-News_mentions
-302108	non-personal_reports
+302108	Self_reports
 103014	Lit-News_mentions
 104416	Lit-News_mentions
-101245	non-personal_reports
+101245	Self_reports
 105575	Lit-News_mentions
 200389	Self_reports
 102661	Lit-News_mentions
@@ -1543,7 +1543,7 @@ tweet_id	label
 104892	Lit-News_mentions
 300009	Lit-News_mentions
 200372	Self_reports
-302387	non-personal_reports
+302387	Self_reports
 302084	non-personal_reports
 301911	Self_reports
 201632	Self_reports
@@ -1624,7 +1624,7 @@ tweet_id	label
 100072	Lit-News_mentions
 104511	Lit-News_mentions
 200780	Self_reports
-104360	Lit-News_mentions
+104360	non-personal_reports
 101535	Lit-News_mentions
 105605	Lit-News_mentions
 200313	Self_reports
@@ -1725,7 +1725,7 @@ tweet_id	label
 101223	Lit-News_mentions
 102718	Lit-News_mentions
 100877	Lit-News_mentions
-300699	Lit-News_mentions
+300699	non-personal_reports
 102227	Lit-News_mentions
 105135	Lit-News_mentions
 105909	Lit-News_mentions
@@ -1864,7 +1864,7 @@ tweet_id	label
 301302	non-personal_reports
 102995	Lit-News_mentions
 201089	Self_reports
-200280	Lit-News_mentions
+200280	non-personal_reports
 301062	non-personal_reports
 103395	Lit-News_mentions
 103646	Lit-News_mentions
@@ -2031,7 +2031,7 @@ tweet_id	label
 101930	Lit-News_mentions
 104159	Lit-News_mentions
 105561	Lit-News_mentions
-102954	Lit-News_mentions
+102954	non-personal_reports
 103428	Lit-News_mentions
 105810	Lit-News_mentions
 300883	Self_reports
@@ -2095,7 +2095,7 @@ tweet_id	label
 100377	non-personal_reports
 102468	Lit-News_mentions
 105359	Lit-News_mentions
-105708	Lit-News_mentions
+105708	non-personal_reports
 102012	Lit-News_mentions
 105486	Lit-News_mentions
 201650	Self_reports
@@ -2115,7 +2115,7 @@ tweet_id	label
 300042	non-personal_reports
 301990	Lit-News_mentions
 102749	Lit-News_mentions
-301489	Self_reports
+301489	non-personal_reports
 102683	Lit-News_mentions
 105964	Lit-News_mentions
 300740	non-personal_reports
@@ -2221,7 +2221,7 @@ tweet_id	label
 300601	Self_reports
 201079	Self_reports
 200488	Self_reports
-300374	non-personal_reports
+300374	Self_reports
 101913	Lit-News_mentions
 102590	Lit-News_mentions
 301497	non-personal_reports
@@ -2452,7 +2452,7 @@ tweet_id	label
 103637	Self_reports
 101334	Lit-News_mentions
 105580	Lit-News_mentions
-301804	non-personal_reports
+301804	Self_reports
 301503	non-personal_reports
 105706	Lit-News_mentions
 105579	Lit-News_mentions
@@ -2474,7 +2474,7 @@ tweet_id	label
 300502	Self_reports
 201227	non-personal_reports
 102253	Lit-News_mentions
-200597	Self_reports
+200597	non-personal_reports
 302119	Self_reports
 101575	Lit-News_mentions
 301076	non-personal_reports
@@ -2581,14 +2581,14 @@ tweet_id	label
 105825	Lit-News_mentions
 300153	non-personal_reports
 100859	Lit-News_mentions
-201550	non-personal_reports
+201550	Self_reports
 201182	Self_reports
 101673	Lit-News_mentions
 200955	Self_reports
 104727	Lit-News_mentions
 301799	non-personal_reports
 104244	Lit-News_mentions
-301133	non-personal_reports
+301133	Self_reports
 301280	Self_reports
 300284	Self_reports
 105918	Lit-News_mentions
@@ -2603,7 +2603,7 @@ tweet_id	label
 101036	Lit-News_mentions
 105240	Lit-News_mentions
 103967	Lit-News_mentions
-302055	non-personal_reports
+302055	Self_reports
 102197	Lit-News_mentions
 201265	Self_reports
 103813	Lit-News_mentions
@@ -2728,7 +2728,7 @@ tweet_id	label
 300992	Self_reports
 200999	Self_reports
 300543	Lit-News_mentions
-300774	Lit-News_mentions
+300774	non-personal_reports
 101492	Lit-News_mentions
 200826	Self_reports
 102697	Lit-News_mentions
@@ -2900,7 +2900,7 @@ tweet_id	label
 105585	Lit-News_mentions
 102423	Lit-News_mentions
 105293	Lit-News_mentions
-301196	Lit-News_mentions
+301196	non-personal_reports
 102570	Lit-News_mentions
 200786	Self_reports
 102266	Lit-News_mentions
@@ -2950,7 +2950,7 @@ tweet_id	label
 201184	Self_reports
 201441	Self_reports
 200834	Self_reports
-300500	non-personal_reports
+300500	Self_reports
 101996	Lit-News_mentions
 200175	Self_reports
 102083	Lit-News_mentions
@@ -3165,7 +3165,7 @@ tweet_id	label
 201139	Self_reports
 201479	Self_reports
 102148	Lit-News_mentions
-302313	non-personal_reports
+302313	Self_reports
 301747	Lit-News_mentions
 101311	Lit-News_mentions
 103847	Lit-News_mentions
@@ -3312,7 +3312,7 @@ tweet_id	label
 103369	Lit-News_mentions
 200721	Self_reports
 301109	non-personal_reports
-302202	non-personal_reports
+302202	Self_reports
 300628	Self_reports
 104903	Lit-News_mentions
 201569	Self_reports
@@ -3478,7 +3478,7 @@ tweet_id	label
 201509	Self_reports
 302405	Self_reports
 101621	Lit-News_mentions
-200619	non-personal_reports
+200619	Self_reports
 100095	Lit-News_mentions
 103551	Lit-News_mentions
 104119	Lit-News_mentions
@@ -3524,15 +3524,15 @@ tweet_id	label
 300615	non-personal_reports
 302292	Self_reports
 300965	non-personal_reports
-201150	non-personal_reports
+201150	Self_reports
 100987	Lit-News_mentions
 200199	Self_reports
-200876	Lit-News_mentions
+200876	non-personal_reports
 104004	Lit-News_mentions
 100772	Lit-News_mentions
 105412	Lit-News_mentions
 201328	Self_reports
-201564	non-personal_reports
+201564	Self_reports
 104671	Lit-News_mentions
 104260	Lit-News_mentions
 300422	Self_reports
@@ -3786,7 +3786,7 @@ tweet_id	label
 102898	Lit-News_mentions
 100395	Lit-News_mentions
 104663	Lit-News_mentions
-301628	Self_reports
+301628	non-personal_reports
 300607	Self_reports
 301626	non-personal_reports
 105082	Lit-News_mentions
@@ -3808,7 +3808,7 @@ tweet_id	label
 103259	Lit-News_mentions
 103501	Lit-News_mentions
 100259	Lit-News_mentions
-301045	non-personal_reports
+301045	Self_reports
 301281	Lit-News_mentions
 200385	Self_reports
 101386	Lit-News_mentions
@@ -3983,7 +3983,7 @@ tweet_id	label
 104197	Lit-News_mentions
 101983	Lit-News_mentions
 104302	Lit-News_mentions
-201120	non-personal_reports
+201120	Self_reports
 301837	non-personal_reports
 101315	Lit-News_mentions
 101566	Lit-News_mentions
@@ -4022,7 +4022,7 @@ tweet_id	label
 105148	Lit-News_mentions
 201344	Self_reports
 301611	Lit-News_mentions
-200404	non-personal_reports
+200404	Self_reports
 100148	Lit-News_mentions
 105532	Lit-News_mentions
 300665	Self_reports
@@ -4219,7 +4219,7 @@ tweet_id	label
 201091	Self_reports
 101522	Lit-News_mentions
 104564	Lit-News_mentions
-301137	non-personal_reports
+301137	Self_reports
 201459	Self_reports
 103063	Lit-News_mentions
 104092	Lit-News_mentions
@@ -4359,7 +4359,7 @@ tweet_id	label
 103668	Lit-News_mentions
 105045	Lit-News_mentions
 200425	Self_reports
-103567	Self_reports
+103567	non-personal_reports
 301937	non-personal_reports
 105712	Lit-News_mentions
 301981	non-personal_reports
@@ -4642,7 +4642,7 @@ tweet_id	label
 100366	Lit-News_mentions
 105748	Lit-News_mentions
 101862	Lit-News_mentions
-200022	non-personal_reports
+200022	Self_reports
 105893	Lit-News_mentions
 301372	Self_reports
 301851	Self_reports
@@ -4656,7 +4656,7 @@ tweet_id	label
 300123	non-personal_reports
 300445	Self_reports
 104058	Lit-News_mentions
-201147	Self_reports
+201147	non-personal_reports
 300633	non-personal_reports
 105387	Lit-News_mentions
 105709	Lit-News_mentions
@@ -4855,13 +4855,13 @@ tweet_id	label
 201146	Self_reports
 104400	Lit-News_mentions
 104003	Lit-News_mentions
-200415	Lit-News_mentions
+200415	non-personal_reports
 105095	Lit-News_mentions
 201547	Lit-News_mentions
 301542	non-personal_reports
 200525	Self_reports
 104028	Lit-News_mentions
-200734	Lit-News_mentions
+200734	non-personal_reports
 101250	Lit-News_mentions
 104178	Lit-News_mentions
 105667	Lit-News_mentions
@@ -4996,7 +4996,7 @@ tweet_id	label
 105196	Lit-News_mentions
 302113	non-personal_reports
 201518	Lit-News_mentions
-300596	non-personal_reports
+300596	Self_reports
 300979	Self_reports
 100349	Lit-News_mentions
 100492	Lit-News_mentions
