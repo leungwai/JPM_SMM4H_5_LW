@@ -230,7 +230,7 @@ def val_testing(model, testing_loader, labels_to_ids, device):
 
     eval_loss = eval_loss / nb_eval_steps
 
-    return overall_prediction_data, labels, predictions, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df
+    return overall_prediction_data, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df
 
 def calculate_overall_performance_metrics(num_labels, num_predictions):
     eval_test_f1 = f1_score(num_labels, num_predictions, labels=[0], average=None)[0]

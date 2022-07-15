@@ -23,7 +23,7 @@ def main(model_load_location):
 
     #Reading datasets and initializing data loaders
     dataset_location = '../Datasets/'
-    test_data = read_task(dataset_location , split = 'test')
+    test_data = read_task(dataset_location , split = 'dev')
 
     labels_to_ids = task7_labels_to_ids
     input_data = (test_data, labels_to_ids)
@@ -39,12 +39,17 @@ def main(model_load_location):
     model.to(device)
 
     # Getting testing dataloaders
-    test_loader, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df = initialize_eval_test(tokenizer, initialization_input, test_data, labels_to_ids, shuffle = False)
+    test_loader= initialize_eval_test(tokenizer, initialization_input, test_data, labels_to_ids, shuffle = False)
 
     start = time.time()
 
     # Run the model with unshuffled testing data
-    test_result, = testing(model, test_loader, labels_to_ids, device)
+    test_result, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df = val_testing(model, test_loader, labels_to_ids, device)
+
+    print('EVAL TEST ACC:', overall_accuracy)
+    print('EVAL TEST F1:', overall_f1)
+    print('EVAL TEST PRECISION:', overall_precision)
+    print('EVAL TEST RECALL:', overall_recall)
 
     now = time.time()
 
