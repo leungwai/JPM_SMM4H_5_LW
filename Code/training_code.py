@@ -248,9 +248,9 @@ def calculate_overall_performance_metrics(num_labels, num_predictions):
     return eval_test_f1, eval_test_precision, eval_test_recall, eval_test_accuracy
 
 def calculate_micro_overall_performance_metrics(num_labels, num_predictions):
-    micro_eval_test_f1 = f1_score(num_labels, num_predictions, labels=[0], average='micro')
-    micro_eval_test_precision = precision_score(num_labels, num_predictions, labels=[0], average='micro')
-    micro_eval_test_recall = recall_score(num_labels, num_predictions, labels=[0], average='micro')
+    micro_eval_test_f1 = f1_score(num_labels, num_predictions, average='micro')
+    micro_eval_test_precision = precision_score(num_labels, num_predictions, average='micro')
+    micro_eval_test_recall = recall_score(num_labels, num_predictions, average='micro')
     micro_eval_test_accuracy = accuracy_score(num_labels, num_predictions)
 
     return micro_eval_test_f1, micro_eval_test_precision, micro_eval_test_recall
