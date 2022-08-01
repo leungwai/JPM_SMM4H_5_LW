@@ -230,11 +230,14 @@ def val_testing(model, testing_loader, labels_to_ids, device):
     overall_prediction_data = pd.DataFrame(zip(eval_tweet_ids, eval_orig_sentences, labels, predictions), columns=['tweet_id', 'text', 'Orig', 'label'])
     
     overall_f1, overall_precision, overall_recall, overall_accuracy = calculate_overall_performance_metrics(num_labels, num_predictions)
+    
+    overall_micro_f1, overall_micro_precision, overall_micro_recall = calculate_micro_overall_performance_metrics(num_labels, num_predictions)
+    
     overall_cr_df, overall_cm_df = calculate_overall_f1(num_labels, num_predictions)
 
     eval_loss = eval_loss / nb_eval_steps
 
-    return overall_prediction_data, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df, eval_logits
+    return overall_prediction_data, overall_f1, overall_precision, overall_recall, overall_accuracy, overall_cr_df, overall_cm_df, eval_logits, overall_micro_f1, overall_micro_precision, overall_micro_recall
 
 def calculate_overall_performance_metrics(num_labels, num_predictions):
     eval_test_f1 = f1_score(num_labels, num_predictions, labels=[0], average=None)[0]
@@ -243,6 +246,14 @@ def calculate_overall_performance_metrics(num_labels, num_predictions):
     eval_test_accuracy = accuracy_score(num_labels, num_predictions)
 
     return eval_test_f1, eval_test_precision, eval_test_recall, eval_test_accuracy
+
+def calculate_micro_overall_performance_metrics(num_labels, num_predictions):
+    micro_eval_test_f1 = f1_score(num_labels, num_predictions, labels=[0], average='micro')
+    micro_eval_test_precision = precision_score(num_labels, num_predictions, labels=[0], average='micro')
+    micro_eval_test_recall = recall_score(num_labels, num_predictions, labels=[0], average='micro')
+    micro_eval_test_accuracy = accuracy_score(num_labels, num_predictions)
+
+    return micro_eval_test_f1, micro_eval_test_precision, micro_eval_test_recall
 
 def calculate_overall_f1(num_labels, num_predictions):
     eval_classification_report = classification_report(num_labels, num_predictions, output_dict = True)
