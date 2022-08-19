@@ -1,0 +1,4 @@
+Accuracy: 0.8431646631255242
+F1 Score (of self_reports): 0.7528005974607915
+Precison Score (of self_reports): 0.6571056062581486
+Recall result (of self_reports): 0.8811188811188811
