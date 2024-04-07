@@ -1,4 +1,4 @@
-# 🐤 JPM_SMM4H_2b_LW
+# 🐤 JPM_SMM4H_5_LW
 
 **Task 5** for the **7th Social Mining Media for Health (SMM4H)** competition hosted by **International Conference on Computational Logistics (COLING) 2022**
 
@@ -8,7 +8,7 @@ This repo is training, ensembling and analysis code for the BERT Model used for 
 
 _\#NLP \#BERT \#ML \#Python_
 
-**See Also:** Subtask 1a | Subtask 1b | Subtask 1c | Subtask 2a | Subtask 2b 
+**See Also:** [Subtask 1a](https://github.com/leungwai/JPM_SMM4H_1a_LW) | [Subtask 1b](https://github.com/leungwai/JPM_SMM4H_1b_LW) | [Subtask 1c](https://github.com/leungwai/JPM_SMM4H_1c_LW) | [Subtask 2a](https://github.com/leungwai/JPM_SMM4H_2a_LW) | [Subtask 2b](https://github.com/leungwai/JPM_SMM4H_2b_LW) 
 
 ## Premise
 The need to use Natural Language Processing \(NLP\) on social media posts is increasingly important as its userbase grows to guage public perception on issues, such as sentiments during the COVID-19 pandemic. 
